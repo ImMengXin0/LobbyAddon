@@ -1,0 +1,20 @@
+# Build output and local Gradle state
+.gradle/
+build/
+target/
+out/
+*.class
+*.bak
+
+# Editors
+.idea/
+.vscode/
+*.iml
+
+# Runtime output and local configuration
+logs/
+*.log
+*.hprof
+local.properties
+.DS_Store
+Thumbs.db

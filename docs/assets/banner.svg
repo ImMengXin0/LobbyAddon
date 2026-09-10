@@ -1,0 +1,86 @@
+<svg width="1400" height="410" viewBox="0 0 1400 410" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">LobbyAddon</title>
+  <desc id="desc">Player style management for lobby servers: nicknames, prefixes, suffixes and chat colors on Spigot 1.8.8</desc>
+
+  <defs>
+    <linearGradient id="plateStroke" x2="1" y2="1">
+      <stop stop-color="#2C6682"/>
+      <stop offset="1" stop-color="#695BB5"/>
+    </linearGradient>
+    <linearGradient id="nameText" x2="1">
+      <stop stop-color="#F4F8FF"/>
+      <stop offset="1" stop-color="#B8F6FA"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="410" rx="24" fill="#0B111C"/>
+  <rect x="1" y="1" width="1398" height="408" rx="23" stroke="#2A466B" stroke-width="2"/>
+  <rect x="20" y="20" width="1360" height="370" rx="18" fill="#101B2D"/>
+  <rect x="20" y="20" width="1360" height="370" rx="18" stroke="#172C4A" stroke-width="1"/>
+
+  <g opacity="0.2" stroke="#365477" stroke-width="1">
+    <path d="M70 20V390M150 20V390M230 20V390M310 20V390M390 20V390M470 20V390M550 20V390M630 20V390M710 20V390M790 20V390M870 20V390M950 20V390M1030 20V390M1110 20V390M1190 20V390M1270 20V390M1350 20V390"/>
+    <path d="M20 70H1380M20 130H1380M20 190H1380M20 250H1380M20 310H1380M20 370H1380"/>
+  </g>
+
+  <path d="M82 83V327" stroke="#20D6E7" stroke-width="6"/>
+  <path d="M82 83V327" stroke="#20D6E7" stroke-width="14" opacity="0.08"/>
+
+  <text x="124" y="100" fill="#57E8F3" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="7">MX / LOBBY STYLE TOOLKIT</text>
+  <text x="120" y="174" fill="#F4F8FF" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="800">LobbyAddon</text>
+  <text x="124" y="215" fill="#AFC3DF" font-family="Arial, Helvetica, sans-serif" font-size="24">Style every player. Control every name.</text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="1.4">
+    <rect x="124" y="254" width="158" height="42" rx="7" fill="#163B4B" stroke="#218DA2"/>
+    <text x="148" y="280" fill="#7CECF4">NICKNAMES</text>
+    <rect x="296" y="254" width="186" height="42" rx="7" fill="#29234D" stroke="#695BB5"/>
+    <text x="320" y="280" fill="#C8BBFF">PREFIX / SUFFIX</text>
+    <rect x="496" y="254" width="164" height="42" rx="7" fill="#3A2E14" stroke="#B4892A"/>
+    <text x="520" y="280" fill="#FDE68A">CHAT COLORS</text>
+    <rect x="674" y="254" width="113" height="42" rx="7" fill="#1B3048" stroke="#416486"/>
+    <text x="699" y="280" fill="#BFD3ED">JAVA 8</text>
+  </g>
+
+  <text x="124" y="339" fill="#7795BA" font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="3">SPIGOT 1.8.8 / LUCKPERMS</text>
+  <text x="900" y="339" fill="#7795BA" font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="3" text-anchor="end">VERSION 2.0</text>
+
+  <g transform="translate(1110 200)">
+    <circle r="152" fill="#123A4E" opacity="0.22"/>
+    <path d="M0 -148L128 -74V74L0 148L-128 74V-74L0 -148Z" fill="none" stroke="#2A466B" stroke-width="2"/>
+    <path d="M0 -126L108 -63V63L0 126L-108 63V-63L0 -126Z" fill="none" stroke="#1E3A55"/>
+
+    <rect x="-188" y="-72" width="376" height="144" rx="14" fill="#12243B" stroke="url(#plateStroke)" stroke-width="3"/>
+    <rect x="-188" y="-72" width="376" height="5" rx="2.5" fill="#20D6E7" opacity="0.55"/>
+
+    <rect x="-166" y="-54" width="54" height="54" rx="9" fill="#163B4B" stroke="#218DA2" stroke-width="2"/>
+    <circle cx="-139" cy="-33" r="12" fill="#7CECF4"/>
+    <path d="M-160 -9C-160 -22 -152 -27 -139 -27C-126 -27 -118 -22 -118 -9Z" fill="#7CECF4"/>
+
+    <rect x="-98" y="-54" width="70" height="26" rx="6" fill="#3A2E14" stroke="#FBBF24" stroke-width="2"/>
+    <text x="-63" y="-35" fill="#FDE68A" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">VIP</text>
+    <text x="-16" y="-33" fill="url(#nameText)" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Player</text>
+
+    <rect x="102" y="-54" width="66" height="26" rx="6" fill="#29234D" stroke="#9F7BFF" stroke-width="2"/>
+    <text x="135" y="-35" fill="#C8BBFF" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle">MEMBER</text>
+
+    <g>
+      <rect x="-166" y="12" width="26" height="26" rx="5" fill="#E5484D"/>
+      <rect x="-134" y="12" width="26" height="26" rx="5" fill="#F76808"/>
+      <rect x="-102" y="12" width="26" height="26" rx="5" fill="#FFB224"/>
+      <rect x="-70" y="12" width="26" height="26" rx="5" fill="#46A758"/>
+      <rect x="-38" y="12" width="26" height="26" rx="5" fill="#12A594"/>
+      <rect x="-6" y="12" width="26" height="26" rx="5" fill="#0091FF"/>
+      <rect x="26" y="12" width="26" height="26" rx="5" fill="#8E4EC6"/>
+      <rect x="58" y="12" width="26" height="26" rx="5" fill="#E93D82"/>
+      <rect x="90" y="12" width="76" height="26" rx="5" fill="#1B3048" stroke="#416486" stroke-width="1.5"/>
+    </g>
+    <path d="M104 25H152" stroke="#57E8F3" stroke-width="4" stroke-linecap="round"/>
+
+    <g stroke="#57E8F3" stroke-width="2" opacity="0.9">
+      <path d="M170 -100V-72M156 -86H184"/>
+      <path d="M-196 96V124M-210 110H-182"/>
+    </g>
+    <circle cx="-176" cy="-104" r="3" fill="#9F7BFF"/>
+    <circle cx="158" cy="112" r="3" fill="#57E8F3"/>
+  </g>
+</svg>

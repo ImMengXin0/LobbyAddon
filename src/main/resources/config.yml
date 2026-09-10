@@ -1,0 +1,222 @@
+# LobbyAddon default configuration
+
+# Backend server identifier used by server-specific rules and Bungee fallbacks.
+# Set this to the proxy server name (for example lobby, survival, or games).
+server-name: lobby
+
+storage:
+  type: yaml
+
+mysql:
+  host: localhost
+  port: 3306
+  database: lobbyaddon
+  username: root
+  password: ""
+  table: nick_data
+  useSSL: false
+  pool-size: 8
+  migrate-yaml-on-first-load: false
+  cache-refresh-seconds: 15
+
+bungee:
+  enabled: true
+  request-interval: 3
+  cache-timeout-seconds: 15
+  servers:
+    - lobby
+    - survival
+
+menu-updater:
+  enabled: true
+  interval: 1
+  # Keep false unless the menu plugin uses a null inventory holder.
+  allow-null-holder: false
+
+nickname:
+  min-length: 3
+  max-length: 16
+
+color:
+  enabled: true
+  code-char: '&'
+  # Hex colors are rendered on Minecraft 1.16+ only.
+  hex-enabled: true
+
+# Per-player chat message colors. Choices are stored in chat-colors.yml.
+chat-color:
+  enabled: true
+  preview-text: '这是一条聊天颜色预览消息'
+  permissions:
+    use: lobbyaddon.chatcolor.use
+    legacy: lobbyaddon.chatcolor.legacy
+    hex: lobbyaddon.chatcolor.hex
+    gradient: lobbyaddon.chatcolor.gradient
+    format: lobbyaddon.chatcolor.format
+    preset: lobbyaddon.chatcolor.preset
+    obfuscated: lobbyaddon.chatcolor.obfuscated
+  legacy:
+    enabled: true
+    # Supports &0 through &f and English color names.
+    allowed-colors: ['&0', '&1', '&2', '&3', '&4', '&5', '&6', '&7', '&8', '&9', '&a', '&b', '&c', '&d', '&e', '&f']
+  modern:
+    enabled: true
+    hex-enabled: true
+    gradient-enabled: true
+    # On Minecraft 1.8-1.15, map Hex and gradient colors to the nearest legacy color.
+    legacy-fallback: true
+  formats:
+    enabled: true
+    allowed: [bold, italic, underline, strikethrough, obfuscated]
+  # Presets may combine a color mode with formats and an optional extra permission.
+  presets:
+    vip-gold:
+      mode: legacy
+      primary: '&6'
+      formats: [bold]
+      permission: ''
+    ocean:
+      mode: gradient
+      primary: '#00C6FF'
+      secondary: '#0072FF'
+      formats: [bold]
+      permission: ''
+    sunset:
+      mode: gradient
+      primary: '#FF512F'
+      secondary: '#F09819'
+      formats: []
+      permission: ''
+    rose:
+      mode: hex
+      primary: '#FF5FA2'
+      formats: [italic]
+      permission: ''
+custom:
+  enabled: true
+  # This priority is reserved for LobbyAddon-owned LuckPerms prefix nodes.
+  prefix-priority: 100
+  min-length: 1
+  max-length: 16
+  banned-words:
+    - admin
+    - owner
+    - op
+    - 管理员
+    - 服主
+    - mod
+    - moderator
+
+suffix:
+  enabled: true
+  # This priority is reserved for LobbyAddon-owned LuckPerms suffix nodes.
+  priority: 101
+  min-length: 1
+  max-length: 16
+  banned-words: []
+
+permissions:
+  nick-use: lobbyaddon.nick.use
+  nick-color: lobbyaddon.nick.color
+  nick-others: lobbyaddon.nick.others
+  nick-bypass: lobbyaddon.nick.bypass
+  custom-use: lobbyaddon.custom.use
+  custom-color: lobbyaddon.custom.color
+  custom-bypass: lobbyaddon.custom.bypass
+  suffix-use: lobbyaddon.suffix.use
+  suffix-color: lobbyaddon.suffix.color
+  suffix-bypass: lobbyaddon.suffix.bypass
+
+# Seconds before a player can submit or apply another cosmetic of the same type.
+cooldowns:
+  nick: 30
+  prefix: 60
+  suffix: 60
+
+temporary:
+  enabled: true
+  max-duration-seconds: 604800
+  check-interval-seconds: 30
+
+# When enabled, values for the listed types wait for a reviewer.
+approval:
+  enabled: false
+  required-types: [prefix, suffix]
+  request-expiry-minutes: 1440
+
+history:
+  limit: 100
+
+# Disable profile types in a world or backend server. Leave lists empty to allow them everywhere.
+profile-rules:
+  # Prevent excessively long raw input made mostly from formatting codes.
+  max-raw-length: 128
+  disabled-worlds:
+    nick: []
+    prefix: []
+    suffix: []
+  disabled-servers:
+    nick: []
+    prefix: []
+    suffix: []
+
+# First matching entry provides a display-only fallback when no player custom style is set.
+# Example:
+# - permission: lobbyaddon.group.vip
+#   prefix: '&6[VIP]'
+#   suffix: '&7[会员]'
+#   worlds: []
+#   servers: []
+group-defaults: []
+
+display:
+  enabled: true
+  chat:
+    enabled: true
+    # PlaceholderAPI uses %identifier_placeholder%; {display} is nickname/name only.
+    # Keep both {display} and {message} in the format.
+    # Example: '%luckperms_prefix% {display} %luckperms_suffix% &f{message}'
+    format: "{display} &8> &f{message}"
+  tab-list:
+    enabled: true
+  # Enable only when another plugin does not own scoreboard teams or nametags.
+  nametag:
+    enabled: false
+
+# Main GUI opened by /lobbyaddon menu.
+personal-menu:
+  title: '&8个人设置'
+  profile-title: '&8设置 - {feature}'
+  chat-title: '&8聊天颜色与格式'
+  chat-presets-title: '&8聊天颜色预设'
+  input-timeout-seconds: 60
+
+presets:
+  enabled: true
+  title: '&8个人样式'
+  size: 27
+  # Example:
+  # entries:
+  #   vip-prefix:
+  #     type: prefix
+  #     value: '&6[VIP]'
+  #     material: NAME_TAG
+  #     name: '&6VIP 称号'
+  #     lore: ['&7点击应用']
+  #     slot: 11
+  #     permission: lobbyaddon.preset.vip
+  #     duration: 0
+  entries: {}
+
+nochat:
+  enabled: true
+  message: '&c大厅内禁止聊天。'
+  bypass-permission: lobbyaddon.nochat.bypass
+  exempt-worlds: []
+  message-cooldown-seconds: 3
+  # Command blocking is opt-in. allowed-commands is only used when enabled.
+  block-commands: false
+  allowed-commands: ['/msg', '/tell', '/w', '/r']
+
+debug:
+  menu-updates: false

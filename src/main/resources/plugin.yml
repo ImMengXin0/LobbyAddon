@@ -1,0 +1,113 @@
+name: LobbyAddon
+version: 2.0
+main: cn.mx.lobbyaddon.LobbyAddon
+api-version: 1.13
+author: ImMengXin
+description: Lobby profile, nickname and display management plugin
+softdepend: [PlaceholderAPI, TAB, TrChat, LuckPerms]
+
+commands:
+  nick:
+    description: 设置、重置或管理玩家昵称
+    usage: /<command> <昵称|reset|temp>
+    aliases: [nickname, displayname]
+  custom:
+    description: 设置、重置或临时应用自定义 LuckPerms 称号
+    usage: /<command> <称号|reset|temp>
+    aliases: [prefix, title, ctag]
+  suffix:
+    description: 设置、重置或临时应用自定义 LuckPerms 后缀
+    usage: /<command> <后缀|reset|temp>
+  cosmetics:
+    description: 打开预设样式选择菜单
+    usage: /<command>
+    aliases: [cosmetic, styles]
+  chatcolor:
+    description: 设置聊天颜色、渐变和文字格式
+    usage: /<command> <legacy|hex|gradient|preset|format|preview|reset>
+    aliases: [chatcolour, messagecolor, msgcolor, cc]
+  realname:
+    description: 查询昵称对应的真实玩家
+    usage: /<command> <昵称>
+    aliases: [rn]
+  lobbyaddon:
+    description: LobbyAddon 个人设置与管理命令
+    usage: /<command> <reload|info|debug|pending|approve|reject|history|menu|papi>
+    aliases: [la]
+
+permissions:
+  lobbyaddon.papi:
+    description: View all supported PlaceholderAPI variables
+    default: op
+  lobbyaddon.nick.use:
+    description: 使用昵称功能
+    default: true
+  lobbyaddon.nick.color:
+    description: 在昵称中使用颜色代码
+    default: op
+  lobbyaddon.nick.others:
+    description: 管理其他在线玩家的昵称
+    default: op
+  lobbyaddon.nick.bypass:
+    description: 绕过昵称长度限制
+    default: op
+  lobbyaddon.custom.use:
+    description: 使用自定义称号
+    default: true
+  lobbyaddon.custom.color:
+    description: 在称号中使用颜色代码
+    default: op
+  lobbyaddon.custom.bypass:
+    description: 绕过称号长度限制
+    default: op
+  lobbyaddon.suffix.use:
+    description: 使用自定义后缀
+    default: true
+  lobbyaddon.suffix.color:
+    description: 在后缀中使用颜色代码
+    default: op
+  lobbyaddon.suffix.bypass:
+    description: 绕过后缀长度限制
+    default: op
+  lobbyaddon.cosmetics.use:
+    description: 打开个人设置与预设样式菜单
+    default: true
+  lobbyaddon.chatcolor.use:
+    description: 使用聊天颜色系统
+    default: true
+  lobbyaddon.chatcolor.legacy:
+    description: 使用传统 16 色聊天颜色
+    default: true
+  lobbyaddon.chatcolor.hex:
+    description: 使用十六进制聊天颜色
+    default: true
+  lobbyaddon.chatcolor.gradient:
+    description: 使用渐变聊天颜色
+    default: true
+  lobbyaddon.chatcolor.format:
+    description: 使用聊天文字格式
+    default: true
+  lobbyaddon.chatcolor.preset:
+    description: 使用聊天颜色预设
+    default: true
+  lobbyaddon.chatcolor.obfuscated:
+    description: 使用乱码聊天格式
+    default: op
+  lobbyaddon.nochat.bypass:
+    description: 绕过大厅禁言
+    default: false
+  lobbyaddon.reload:
+    description: 重新加载插件配置和服务
+    default: op
+  lobbyaddon.info:
+    description: 查看插件运行状态
+    default: op
+  lobbyaddon.debug:
+    description: 查看插件诊断信息
+    default: op
+  lobbyaddon.history:
+    description: 查看样式修改记录
+    default: op
+  lobbyaddon.approval.review:
+    description: 审核玩家样式申请
+    default: op
