@@ -266,6 +266,8 @@ JAR 已通过 `implementation` 内嵌 MySQL Connector/J 与 HikariCP，无需额
 
 `build` 会执行 `check`，运行 `src/test` 下的单元测试，覆盖聊天颜色解析与渲染、样式策略与编解码、命令路由、配置默认值与校验、菜单输入与文本、档案请求、时长解析、旧版文本截断和原子 YAML 写入等场景。自动化测试不能替代 Minecraft 实服验收。
 
+查看 [v2.0 发行说明](docs/releases/v2.0.md)。
+
 ## 项目结构
 
 ```text
