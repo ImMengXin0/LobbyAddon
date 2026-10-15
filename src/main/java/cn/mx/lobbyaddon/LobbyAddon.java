@@ -43,6 +43,7 @@ public class LobbyAddon extends JavaPlugin {
     private ProfileService profileService;
     private DisplayService displayService;
     private boolean papiRegistered;
+    private final java.util.List<LobbyPapiExpansion> papiExpansions = new java.util.ArrayList<>();
     private PresetMenuService presetMenuService;
     private PresetMenuListener presetMenuListener;
     private PersonalMenuService personalMenuService;
@@ -51,13 +52,24 @@ public class LobbyAddon extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        try {
+            startRuntime();
+        } catch (RuntimeException | LinkageError failure) {
+            getServer().getPluginManager().disablePlugin(this);
+            throw failure;
+        }
+    }
+
+    private void startRuntime() {
         saveDefaultConfig();
         load();
         Logo.print();
 
         if (!papiRegistered && Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            new LobbyPapiExpansion(this, "lobbyaddon").register();
-            new LobbyPapiExpansion(this, "nick").register();
+            for (String identifier : new String[]{"lobbyaddon", "nick"}) {
+                LobbyPapiExpansion expansion = new LobbyPapiExpansion(this, identifier);
+                if (expansion.register()) papiExpansions.add(expansion);
+            }
             papiRegistered = true;
             getLogger().info("PAPI expansion registered (lobbyaddon + nick)");
         }
@@ -146,6 +158,9 @@ public class LobbyAddon extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        for (LobbyPapiExpansion expansion : papiExpansions) expansion.unregister();
+        papiExpansions.clear();
+        papiRegistered = false;
         if (displayService != null) {
             displayService.clearAll();
         }

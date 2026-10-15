@@ -74,6 +74,7 @@ public final class MysqlStorage implements DataStorage {
     @Override
     public void init() {
         HikariConfig config = new HikariConfig();
+        config.setDriverClassName("com.mysql.cj.jdbc.Driver");
         config.setJdbcUrl("jdbc:mysql://" + host + ":" + port + "/" + database
                 + "?useSSL=" + useSSL + "&useUnicode=true&characterEncoding=UTF-8&socketTimeout=30000");
         config.setUsername(username);
